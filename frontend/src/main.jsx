@@ -1,9 +1,18 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Home } from './Home'
+import { Balance } from './Balance'
+import { Bloque } from './Bloque'
+import { Tx } from './Tx'
 
 createRoot(document.getElementById('root')).render(
-  <h1>
-    Hello world
-  </h1>
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home />}>
+        <Route path='balance' element={<Balance />}></Route>
+        <Route path='tx' element={<Tx />}></Route>
+        <Route path='bloque' element={<Bloque />}></Route>
+      </Route>
+    </Routes>
+  </BrowserRouter>
 )
