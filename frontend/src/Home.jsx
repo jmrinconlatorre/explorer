@@ -13,13 +13,15 @@ export function Home() {
             navigate(`bloque/${data.data}`)
     }
     return (
-        <div>
-            <h1>Explorador de la cadena de ethereum</h1>
-            <form onSubmit={handleSubmit(submitForm)}>
+        <div className="container">
+            <h3 className="text-center">Explorador de la cadena de ethereum</h3>
+            <form className="d-flex justify-content-center gap-1" onSubmit={handleSubmit(submitForm)}>
                 <input {...register('data')}></input>
                 <button className="btn btn-primary">GO</button>
             </form>
-            <Outlet />
+            <div className="border my-3">
+                <Outlet />
+            </div>
         </div>
     )
 }
