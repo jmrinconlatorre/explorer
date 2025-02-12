@@ -14,8 +14,8 @@ export function Balance() {
     }
 
     return (
-        <div>Balance:
+        <pre>
             {JSON.stringify(data, null, 4)}
-        </div>
+        </pre>
     )
 }

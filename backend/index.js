@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
   try {
     const bloque = (await web3.eth.getBlockNumber()).toString();
     res.send({ bloque });
-  } catch {
+  } catch (error) {
     res.status(500).send({ mensaje: error.message });
   }
 });
@@ -26,7 +26,7 @@ app.get('/bloque/:bloque', async (req, res) => {
   try {
     const bloque = await web3.eth.getBlock(req.params.bloque);
     res.send(bloque);
-  } catch {
+  } catch (error) {
     res.status(500).send({ mensaje: error.message });
   }
 });
@@ -35,7 +35,7 @@ app.get('/tx/:tx', async (req, res) => {
   try {
     const tx = await web3.eth.getTransaction(req.params.tx);
     res.send(tx);
-  } catch {
+  } catch (error) {
     res.status(500).send({ mensaje: error.message });
   }
 });
@@ -48,7 +48,7 @@ app.get('/balance/:address', async (req, res) => {
       ethers: balance,
       ethers2: web3.utils.fromWei(balance, 'ether'),
     });
-  } catch {
+  } catch (error) {
     res.status(500).send({ mensaje: error.message });
   }
 });

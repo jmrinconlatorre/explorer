@@ -1,6 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 
+
 export function Home() {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
@@ -12,6 +13,7 @@ export function Home() {
         if (/^\d+\.?\d*$/.test(data.data))
             navigate(`bloque/${data.data}`)
     }
+
     return (
         <div className="container">
             <h3 className="text-center">Explorador de la cadena de ethereum</h3>

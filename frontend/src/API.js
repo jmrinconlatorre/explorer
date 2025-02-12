@@ -15,7 +15,6 @@ export async function getBalance(balance) {
 }
 
 export async function getTx(tx) {
-  console.log(tx);
   const response = await fetch(`http://localhost:3333/tx/${tx.queryKey[1]}`);
   const data = await response.json();
   return data;

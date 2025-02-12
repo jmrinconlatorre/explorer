@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getTx } from "./API";
 import { useQuery } from "react-query";
 
@@ -14,8 +14,46 @@ export function Tx() {
     }
 
     return (
-        <div>Tx:
-            {JSON.stringify(data, null, 4)}
+        <div>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Bloque
+                        </th>
+                        <td>
+                            <Link to={`/bloque/${data.blockNumber}`}>{data.blockNumber}</Link>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            From
+                        </th>
+                        <td>
+                            <Link to={`/balance/${data.from}`}>{data.from}</Link>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            To
+                        </th>
+                        <td>
+                            <Link to={`/balance/${data.to}`}>{data.to}</Link>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Value
+                        </th>
+                        <td>
+                            {data.value}
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+            <pre>
+                {JSON.stringify(data, null, 4)}
+            </pre>
         </div>
     )
 }
